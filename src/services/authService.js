@@ -8,6 +8,9 @@ export const authService = {
       if (response.data.data.access_token) {
         localStorage.setItem("token", response.data.data.access_token);
         localStorage.setItem("user", JSON.stringify(response.data.data.user));
+
+        // redirect di sini
+        window.location.href = "/properties";
       }
       return response.data.data;
     } catch (error) {

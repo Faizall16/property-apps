@@ -79,9 +79,6 @@ export default function Header({ currentPage = "property" }) {
             <button className="hover:text-pink-200 transition-colors">
               <Bell size={24} />
             </button>
-            <button className="hover:text-pink-200 transition-colors">
-              <User size={24} />
-            </button>
             <button
               onClick={handleLogout}
               className="px-3 py-1 rounded border border-white hover:bg-white hover:text-pink-500 transition-colors"

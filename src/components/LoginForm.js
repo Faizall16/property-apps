@@ -17,8 +17,6 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
 
-  console.log(login);
-
   const {
     register,
     handleSubmit,

@@ -79,17 +79,17 @@ export default function Profile() {
               {/* First Name */}
               <div>
                 <label
-                  htmlFor="firstName"
+                  htmlFor="first_name"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
                   First Name
                 </label>
                 <input
-                  {...register("firstName")}
+                  {...register("first_name")}
                   type="text"
-                  id="firstName"
+                  id="first_name"
                   disabled={!isEditing}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-3 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     isEditing
                       ? "border-gray-300 focus:border-transparent"
                       : "border-gray-200 bg-gray-50"
@@ -105,17 +105,17 @@ export default function Profile() {
               {/* Last Name */}
               <div>
                 <label
-                  htmlFor="lastName"
+                  htmlFor="last_name"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
                   Last Name
                 </label>
                 <input
-                  {...register("lastName")}
+                  {...register("last_name")}
                   type="text"
-                  id="lastName"
+                  id="last_name"
                   disabled={!isEditing}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-3 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     isEditing
                       ? "border-gray-300 focus:border-transparent"
                       : "border-gray-200 bg-gray-50"
@@ -142,7 +142,7 @@ export default function Profile() {
                     type="email"
                     id="email"
                     disabled={!isEditing}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10 ${
+                    className={`w-full px-4 py-3 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10 ${
                       isEditing
                         ? "border-gray-300 focus:border-transparent"
                         : "border-gray-200 bg-gray-50"
@@ -163,18 +163,18 @@ export default function Profile() {
               {/* Phone Number */}
               <div>
                 <label
-                  htmlFor="phoneNumber"
+                  htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
                   Phone Number
                 </label>
                 <div className="relative">
                   <input
-                    {...register("phoneNumber")}
+                    {...register("phone")}
                     type="tel"
-                    id="phoneNumber"
+                    id="phone"
                     disabled={!isEditing}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10 ${
+                    className={`w-full px-4 py-3 border rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10 ${
                       isEditing
                         ? "border-gray-300 focus:border-transparent"
                         : "border-gray-200 bg-gray-50"
@@ -188,65 +188,6 @@ export default function Profile() {
                 {errors.phoneNumber && (
                   <p className="mt-1 text-sm text-red-600">
                     {errors.phoneNumber.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Address */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="address"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Address
-                </label>
-                <div className="relative">
-                  <input
-                    {...register("address")}
-                    type="text"
-                    id="address"
-                    disabled={!isEditing}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10 ${
-                      isEditing
-                        ? "border-gray-300 focus:border-transparent"
-                        : "border-gray-200 bg-gray-50"
-                    }`}
-                  />
-                  <MapPin
-                    size={20}
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  />
-                </div>
-                {errors.address && (
-                  <p className="mt-1 text-sm text-red-600">
-                    {errors.address.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Bio */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="bio"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Bio
-                </label>
-                <textarea
-                  {...register("bio")}
-                  id="bio"
-                  rows={4}
-                  disabled={!isEditing}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                    isEditing
-                      ? "border-gray-300 focus:border-transparent"
-                      : "border-gray-200 bg-gray-50"
-                  }`}
-                  placeholder="Tell us about yourself..."
-                />
-                {errors.bio && (
-                  <p className="mt-1 text-sm text-red-600">
-                    {errors.bio.message}
                   </p>
                 )}
               </div>
@@ -277,7 +218,7 @@ export default function Profile() {
         </div>
 
         {/* Additional Profile Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
           {/* Account Information */}
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
@@ -287,43 +228,22 @@ export default function Profile() {
               <div className="flex justify-between">
                 <span className="text-gray-600">Member Since:</span>
                 <span className="text-gray-800">
-                  {profile?.createdAt
-                    ? new Date(profile.createdAt).toLocaleDateString()
+                  {profile?.created_at
+                    ? new Date(profile.created_at).toLocaleDateString()
                     : "N/A"}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Last Updated:</span>
                 <span className="text-gray-800">
-                  {profile?.updatedAt
-                    ? new Date(profile.updatedAt).toLocaleDateString()
+                  {profile?.updated_at
+                    ? new Date(profile.updated_at).toLocaleDateString()
                     : "N/A"}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Account Status:</span>
                 <span className="text-green-600 font-medium">Active</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Preferences */}
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              Preferences
-            </h2>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-gray-600">Email Notifications</span>
-                <input type="checkbox" defaultChecked className="rounded" />
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-gray-600">SMS Notifications</span>
-                <input type="checkbox" className="rounded" />
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-gray-600">Property Alerts</span>
-                <input type="checkbox" defaultChecked className="rounded" />
               </div>
             </div>
           </div>

@@ -12,7 +12,6 @@ export const propertyService = {
       if (filters.type) params.append("type", filters.type);
       if (filters.minPrice) params.append("minPrice", filters.minPrice);
       if (filters.maxPrice) params.append("maxPrice", filters.maxPrice);
-      if (filters.sortBy) params.append("sortBy", filters.sortBy);
       if (filters.page) params.append("page", filters.page);
       if (filters.limit) params.append("limit", filters.limit);
 
@@ -45,7 +44,6 @@ export const propertyService = {
       if (filters.type) params.append("type", filters.type);
       if (filters.minPrice) params.append("minPrice", filters.minPrice);
       if (filters.maxPrice) params.append("maxPrice", filters.maxPrice);
-      if (filters.sortBy) params.append("sortBy", filters.sortBy);
 
       const response = await api.get(`/properties/search?${params.toString()}`);
       return response.data.data;

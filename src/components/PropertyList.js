@@ -12,12 +12,11 @@ export default function PropertyList() {
     status: [],
     location: [],
     type: [],
-    minPrice: 4000000,
-    maxPrice: 8000000,
-    sortBy: "mostRelevant",
+    minPrice: 0,
+    maxPrice: 0,
   });
 
-  const [priceRange, setPriceRange] = useState([4000000, 8000000]);
+  const [priceRange, setPriceRange] = useState([0, 0]);
   const { data: properties, isLoading, error } = useProperties(filters);
   const bookProperty = useBookProperty();
 
@@ -191,28 +190,6 @@ export default function PropertyList() {
 
       {/* Right Content - Property Listings */}
       <div className="flex-1 p-6">
-        {/* Sort and Results Header */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-2">
-            <span className="text-gray-700">Sort By:</span>
-            <select
-              value={filters.sortBy}
-              onChange={(e) =>
-                setFilters((prev) => ({ ...prev, sortBy: e.target.value }))
-              }
-              className="border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="mostRelevant">Most Relevant</option>
-              <option value="priceLow">Price: Low to High</option>
-              <option value="priceHigh">Price: High to Low</option>
-              <option value="newest">Newest First</option>
-            </select>
-          </div>
-          <div className="text-gray-600">
-            {properties?.data?.length || 0} properties found
-          </div>
-        </div>
-
         {/* Property Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties?.data?.map((property) => (
@@ -298,9 +275,6 @@ export default function PropertyList() {
                   status: [],
                   location: [],
                   type: [],
-                  minPrice: 4000000,
-                  maxPrice: 8000000,
-                  sortBy: "mostRelevant",
                 })
               }
               className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
