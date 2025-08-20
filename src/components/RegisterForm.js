@@ -9,11 +9,11 @@ import { useAuth } from "../contexts/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
 
 const registerSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  first_name: z.string().min(2, "First name must be at least 2 characters"),
+  last_name: z.string().min(2, "Last name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  phoneNumber: z.string().min(10, "Please enter a valid phone number"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
 });
 
 export default function RegisterForm() {
@@ -114,19 +114,19 @@ export default function RegisterForm() {
                 {/* Phone Number Field */}
                 <div>
                   <label
-                    htmlFor="phoneNumber"
+                    htmlFor="phone"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Phone Number
                   </label>
                   <input
-                    {...register("phoneNumber")}
+                    {...register("phone")}
                     type="tel"
-                    id="phoneNumber"
+                    id="phone"
                     placeholder="+62XXXXXXXXXX"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                   />
-                  {errors.phoneNumber && (
+                  {errors.phone && (
                     <p className="mt-1 text-sm text-red-600">
                       {errors.phoneNumber.message}
                     </p>
@@ -139,21 +139,21 @@ export default function RegisterForm() {
                 {/* First Name Field */}
                 <div>
                   <label
-                    htmlFor="firstName"
+                    htmlFor="first_name"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     First Name
                   </label>
                   <input
-                    {...register("firstName")}
+                    {...register("first_name")}
                     type="text"
-                    id="firstName"
+                    id="first_name"
                     placeholder="Enter First Name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                   />
                   {errors.firstName && (
                     <p className="mt-1 text-sm text-red-600">
-                      {errors.firstName.message}
+                      {errors.first_name.message}
                     </p>
                   )}
                 </div>
@@ -161,21 +161,21 @@ export default function RegisterForm() {
                 {/* Last Name Field */}
                 <div>
                   <label
-                    htmlFor="lastName"
+                    htmlFor="last_name"
                     className="block text-sm font-medium text-gray-700 mb-2"
                   >
                     Last Name
                   </label>
                   <input
-                    {...register("lastName")}
+                    {...register("last_name")}
                     type="text"
-                    id="lastName"
+                    id="last_name"
                     placeholder="Enter Last Name"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent"
                   />
                   {errors.lastName && (
                     <p className="mt-1 text-sm text-red-600">
-                      {errors.lastName.message}
+                      {errors.last_name.message}
                     </p>
                   )}
                 </div>

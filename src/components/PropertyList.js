@@ -199,20 +199,20 @@ export default function PropertyList() {
             >
               {/* Property Image */}
               <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <Home size={48} className="text-gray-400" />
+                <img src={property.image_url} size={48} className="text-gray-400" />
               </div>
 
               {/* Property Details */}
               <div className="p-4">
                 <h3 className="font-semibold text-lg text-gray-800 mb-2">
-                  {property.title || "Property Title"}
+                  {property.name || "Property Title"}
                 </h3>
 
                 {/* Location with checkmark */}
                 <div className="flex items-center mb-3">
                   <MapPin size={16} className="text-blue-500 mr-1" />
                   <span className="text-gray-600 mr-2">
-                    {property.location || "Bekasi"}
+                    {property.address || "Bekasi"}
                   </span>
                   <Check size={16} className="text-blue-500" />
                 </div>
@@ -232,9 +232,9 @@ export default function PropertyList() {
 
                 {/* Property Details */}
                 <div className="text-sm text-gray-600 mb-3">
-                  <span>LT {property.landArea || "105"} m² </span>
+                  <span>LT {property.land_area || "105"} m² </span>
                   <span className="mx-2">•</span>
-                  <span>LB {property.buildingArea || "98"} m²</span>
+                  <span>LB {property.building_area || "98"} m²</span>
                 </div>
 
                 {/* Time and Book Button */}

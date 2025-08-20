@@ -7,7 +7,7 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: authService.login,
     onSuccess: (data) => {
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData(["user"], data.data.user);
       queryClient.invalidateQueries(["profile"]);
     },
   });
@@ -19,7 +19,7 @@ export const useRegister = () => {
   return useMutation({
     mutationFn: authService.register,
     onSuccess: (data) => {
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData(["user"], data.data.user);
       queryClient.invalidateQueries(["profile"]);
     },
   });
